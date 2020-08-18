@@ -174,6 +174,14 @@ A tag `input` deve receber um valor digitado, logo ela recebe o binding de tipo 
 
 Já o `button` functiona de uma forma diferente, logo ele recebe a chave `click`, que como o nome já mostra, algo será feito após o click do usuário. A função `addNewAnimal` será executada!
 
+```html
+<ul data-bind="foreach: array">
+  <li data-bind="text: $data"></li>
+</ul>
+```
+
+Na `ul` temos algo um pouco diferente, como a variável `array` é um array podemos setar o binding `foreach` nela, assim tudo que estiver dentro a ul será repetido em relação a quantidade de elementos que o array possui! E partindo disso a `li` pode usar esse elemento e mostrar em tela com o binding `text`!
+
 ### Basicamente esse é o funcionamento do KnockoutJS é algo para auxiliar o dev de JS Puro.
 
 <br />
