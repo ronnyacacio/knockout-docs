@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Knockout</title>
+  </head>
+  <body>
+    <div>
+      <input
+        type="text"
+        data-bind="value: animals, valueUpdate: 'afterkeydown'"
+      />
+      <button type="submit" data-bind="click: addNewAnimal">
+        addNewAnimal
+      </button>
+      <button type="submit" data-bind="click: removeAnimal">
+        removeAnimal
+      </button>
+
+      <ul data-bind="foreach: array">
+        <li data-bind="text: $data"></li>
+      </ul>
+    </div>
+
+    <script src="knockout-3.5.1.js"></script>
+    <script>
+      var vm = {
+        animals: ko.observable(),
+        array: ko.observableArray(),
+        addNewAnimal: function () {
+          if (this.animals()) this.array.push(this.animals());
+        },
+        removeAnimal: function () {
+          this.array.pop();
+        },
+      };
+
+      vm.animals("");
+      ko.applyBindings(vm);
+    </script>
+  </body>
+</html>
